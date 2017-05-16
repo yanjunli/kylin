@@ -204,7 +204,7 @@ abstract public class KylinConfigBase implements Serializable {
     // ============================================================================
 
     public StorageURL getMetadataUrl() {
-        return StorageURL.valueOf(getRequired("kylin.metadata.url"));
+        return StorageURL.valueOf(getOptional("kylin.metadata.url", ""));
     }
 
     // for test only
