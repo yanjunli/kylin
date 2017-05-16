@@ -537,7 +537,13 @@ abstract public class KylinConfigBase implements Serializable {
     }
 
     public StorageURL getStorageUrl() {
-        return StorageURL.valueOf(getOptional("kylin.storage.url", "default@hbase"));
+        String url = getOptional("kylin.storage.url", "default@hbase");
+
+        // for backward compatibility
+        if ("hbase".equals(url))
+            url = "default@hbase";
+        
+        return StorageURL.valueOf(url);
     }
 
     public String getHBaseClusterFs() {
