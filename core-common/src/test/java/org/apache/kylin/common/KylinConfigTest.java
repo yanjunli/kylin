@@ -86,7 +86,6 @@ public class KylinConfigTest extends HotLoadKylinPropertiesTestCase {
     @Test
     public void testGetMetadataUrlPrefix() {
         KylinConfig config = KylinConfig.getInstanceFromEnv();
-        final String default_metadata_prefix = "kylin_metadata";
 
         config.setMetadataUrl("testMetaPrefix@hbase");
         assertEquals("testMetaPrefix", config.getMetadataUrlPrefix());
